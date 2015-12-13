@@ -1,0 +1,155 @@
+CREATE DATABASE cs270;
+
+CREATE TABLE Department(
+    department_number INT(6),
+    department_name VARCHAR(30),
+    PRIMARY KEY (department_number)
+);
+
+INSERT INTO Department (department_number,department_name)
+            VALUES   (1,"Hardware Development"), 
+            	     (2,"Software Development"),
+              	     (3,"Quality Assurance"),
+              	     (4,"Accounting");
+
+
+CREATE TABLE Employee(
+    employee_number INT(12),
+    department_number INT(2),
+    lastname CHAR(15),
+    firstname CHAR(20),
+    middlename CHAR(15),
+    birthdate DATE,
+    civilstat VARCHAR(10),
+    salary DECIMAL(8,2),
+    PRIMARY KEY (employee_number),
+    FOREIGN KEY (department_number) REFERENCES Department (department_number)
+);
+
+INSERT INTO Employee (employee_number,department_number,lastname,firstname,middlename,birthdate,civilstat,salary)
+            VALUES   (0112060105,1,"CALIMBAHIN","Caezarina Marie", "Fojas",'1990-09-21', "single0", 50000.00);
+
+CREATE TABLE PhilHealthTable(
+    salary_bracket INT(2),
+    range_min DECIMAL(8,2),
+    range_max DECIMAL(8,2),
+    employee_share DECIMAL(8,2)
+);
+
+INSERT INTO PhilHealthTable (salary_bracket,range_min,range_max,employee_share)
+            VALUES (1,1.00,8999.99,100.00),
+                   (2,9000.00,9999.99,112.50),
+                   (3,10000.00,10999.99,125.00),
+                   (4,11000.00,11999.99,137.50),
+                   (5,12000.00,12999.99,150.00),
+                   (6,13000.00,13999.99,162.50),
+                   (7,14000.00,14999.99,175.00),
+                   (8,15000.00,15999.99,187.50),
+                   (9,16000.00,16999.99,200.00),
+                   (10,17000.00,17999.99,212.50),
+                   (11,18000.00,18999.99,225.00),
+                   (12,19000.00,19999.99,237.50),
+                   (13,20000.00,20999.99,250.00),
+                   (14,21000.00,21999.99,262.50),
+                   (15,22000.00,22999.99,275.00),
+                   (16,23000.00,23999.99,287.50),
+                   (17,24000.00,24999.99,300.00),
+                   (18,25000.00,25999.99,312.50),
+                   (19,26000.00,26999.99,325.00),
+                   (20,27000.00,27999.99,337.50),
+                   (21,28000.00,28999.99,350.00),
+                   (22,29000.00,29999.99,362.50),
+                   (23,30000.00,30999.99,375.00),
+                   (24,31000.00,31999.99,387.50),
+                   (25,32000.00,32999.99,400.00),
+                   (26,33000.00,33999.99,412.50),
+                   (27,34000.00,34999.99,425.00),
+                   (28,35000.00,99000.00,437.50);
+
+
+CREATE TABLE sssTable(
+    range_min DECIMAL(8,2),
+    range_max DECIMAL(8,2),
+    employee_share DECIMAL(8,2)
+);
+
+INSERT INTO sssTable (range_min,range_max,employee_share)
+            VALUES (1000,1249.99,33.30),
+                   (1250,1749.99,50.00),
+                   (1750,2249.99,66.70),
+                   (2250,2749.99,83.30),
+                   (2750,3249.99,100.00),
+                   (3250,3749.99,116.70),
+                   (3750,4249.99,133.30),
+                   (4250,4749.99,150.00),
+                   (4750,5249.99,166.70),
+                   (5250,5749.99,183.30),
+                   (5750,6249.99,200.00),
+                   (6250,6749.99,216.70),
+                   (6750,7249.99,233.30),
+                   (7250,7749.99,250.00),
+                   (7750,8249.99,266.70),
+                   (8250,8749.99,283.30),
+                   (8750,9249.99,300.00),
+		   (9250,9749.99,316.70),
+                   (9750,10249.99,333.30),
+                   (10250,10749.99,350.00),
+                   (10750,11249.99,366.70),
+                   (11250,11749.99,383.30),
+                   (11750,12249.99,400.00),
+                   (12250,12749.99,418.70),
+                   (12750,13249.99,433.30),
+                   (13250,13749.99,450.00),
+                   (13750,14249.99,466.70),
+                   (14250,14749.99,483.30),
+                   (14750,999999.99,500.00);
+
+INSERT INTO sssTable (range_min,range_max,employee_share)
+            VALUES (0,999.99,0.00);
+
+CREATE TABLE TaxTable(
+    civil_stat VARCHAR(10),
+    range1 DECIMAL(8,2),
+    range2 DECIMAL(8,2),
+    range3 DECIMAL(8,2),
+    range4 DECIMAL(8,2),
+    range5 DECIMAL(8,2),
+    range6 DECIMAL(8,2),
+    range7 DECIMAL(8,2),
+    range8 DECIMAL(8,2)
+);
+
+INSERT INTO TaxTable (civil_stat,range1,range2,range3,range4,range5,range6,range7,range8)
+            VALUES   ("single0",1,4167,5000,6667,10000,15833,25000,45833),
+                     ("married0",1,4167,5000,6667,10000,15833,25000,45833),
+                     ("single1",1,6250,7083,8750,12083,17917,27083,47917),
+                     ("married1",1,6250,7083,8750,12083,17917,27083,47917),
+                     ("single2",1,8333,9167,10833,14167,20000,29167,50000),
+                     ("married2",1,8333,9167,10833,14167,20000,29167,50000),
+                     ("single3",1,10417,11250,12917,16250,22083,31250,52083),
+                     ("married3",1,10417,11250,12917,16250,22083,31250,52083),
+                     ("single4",1,12500,13333,15000,18333,24167,33333,54167),
+                     ("married4",1,12500,13333,15000,18333,24167,33333,54167);
+
+CREATE TABLE TaxPercentDeduction(
+    rangetype VARCHAR(10),
+    taxamount DECIMAL(8,2),
+    additionalpercentage DECIMAL(4,2)
+);
+
+INSERT INTO TaxPercentDeduction (rangetype,taxamount,additionalpercentage)
+                         VALUES ("range1",0.00,0.00),
+                                ("range2",0.00,0.05),
+                                ("range3",41.67,0.10),
+                                ("range4",208.33,0.15),
+                                ("range5",708.33,0.20),
+                                ("range6",1875.00,0.25),
+                                ("range7",4166.67,0.3),
+                                ("range8",10416.67,0.32);
+
+
+
+
+
+
+
